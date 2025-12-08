@@ -814,7 +814,7 @@ flowchart TD
 
 | Modelo | Accuracy | Precision | Recall | F1-Score |
 |--------|----------|-----------|--------|----------|
-| **Random Forest** | **92.5%** | **0.91** | **0.89** | **0.90** ✅ |
+| **Random Forest** | **92.5%** | **0.91** | **0.89** | **0.90** |
 | Logistic Regression | 85.3% | 0.82 | 0.80 | 0.81 |
 | Decision Tree | 88.7% | 0.86 | 0.85 | 0.85 |
 
@@ -1473,18 +1473,18 @@ Los modelos entrenados proporcionan:
 
 #### Fortalezas
 
-- ✅ Arquitectura robusta y escalable
-- ✅ ML exitoso con F1-Score ≥85%
-- ✅ Interfaz intuitiva (ML Wizard)
-- ✅ Predicciones por fecha, período y semana
-- ✅ Documentación completa
+- Arquitectura robusta y escalable
+- ML exitoso con F1-Score ≥85%
+- Interfaz intuitiva (ML Wizard)
+- Predicciones por fecha, período y semana
+- Documentación completa
 
 #### Limitaciones Identificadas
 
-- ⚠️ Umbrales de clasificación hardcodeados (no se adaptan a estaciones)
-- ⚠️ Falta validación cruzada (solo train/test split)
-- ⚠️ Conversión clasificación→regresión puede perder precisión vs regresión nativa
-- ⚠️ No hay detección automática de concept drift
+- Umbrales de clasificación hardcodeados (no se adaptan a estaciones)
+- Falta validación cruzada (solo train/test split)
+- Conversión clasificación→regresión puede perder precisión vs regresión nativa
+- No hay detección automática de concept drift
 
 #### Áreas de Mejora Futura
 

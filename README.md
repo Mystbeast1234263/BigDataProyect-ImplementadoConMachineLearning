@@ -8,24 +8,24 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green.svg)](https://www.mongodb.com/cloud/atlas)
 [![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.3+-orange.svg)](https://scikit-learn.org/)
 
-## 📋 Descripción
+## Descripción
 
 Este proyecto implementa un **sistema completo de Big Data** para análisis de sensores IoT, con una arquitectura moderna separada en backend (FastAPI) y frontend (React + Vite). El sistema integra **Machine Learning** para predicciones de estados de sensores (normal/warning/critical) con modelos que superan el 85% de F1-Score requerido.
 
-### ✨ Características principales:
+### Características principales:
 
-- **🏗️ Arquitectura de 5 Capas**: Fuentes → Ingesta → Almacenamiento → Procesamiento → ML → Visualización
-- **🤖 Machine Learning**: Entrenamiento automático de modelos (Random Forest, Logistic Regression, Decision Tree)
-- **📊 ML Wizard**: Interfaz intuitiva de 5 pasos para entrenar modelos y hacer predicciones
-- **🔮 Predicciones Completas**: Por fecha, período (mes) y semana
-- **📈 Visualización Interactiva**: Dashboards con múltiples gráficos (Recharts)
-- **🔐 Autenticación JWT**: Seguridad con tokens
-- **☁️ MongoDB Atlas**: Base de datos en la nube escalable
-- **📁 Soporte Multi-formato**: CSV, Excel, JSON, Parquet
+- **Arquitectura de 5 Capas**: Fuentes → Ingesta → Almacenamiento → Procesamiento → ML → Visualización
+- **Machine Learning**: Entrenamiento automático de modelos (Random Forest, Logistic Regression, Decision Tree)
+- **ML Wizard**: Interfaz intuitiva de 5 pasos para entrenar modelos y hacer predicciones
+- **Predicciones Completas**: Por fecha, período (mes) y semana
+- **Visualización Interactiva**: Dashboards con múltiples gráficos (Recharts)
+- **Autenticación JWT**: Seguridad con tokens
+- **MongoDB Atlas**: Base de datos en la nube escalable
+- **Soporte Multi-formato**: CSV, Excel, JSON, Parquet
 
 ---
 
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ```mermaid
 graph TB
@@ -336,16 +336,14 @@ El proyecto incluye datos de ejemplo de sensores IoT de Cochabamba, Bolivia:
 
 ---
 
-## 📚 Documentación Completa
+## Documentación Completa
 
 La documentación completa del proyecto está disponible en la carpeta `/docs`:
 
-- **[📄 INFORME_ML.md](docs/INFORME_ML.md)**: Informe técnico completo con arquitectura, diagramas, documentación ML, métricas y conclusiones
-- **[🚀 DESPLIEGUE.md](docs/DESPLIEGUE.md)**: Guía completa de instalación, configuración y despliegue paso a paso
-- **[📅 CRONOGRAMA.md](docs/CRONOGRAMA.md)**: Cronograma del proyecto con diagrama Gantt y evidencia de trabajo en equipo
-- **[🎬 GUIA_DEMO.md](docs/GUIA_DEMO.md)**: Guía de demostración en vivo con guion paso a paso
+- **[INFORME_ML.md](docs/INFORME_ML.md)**: Informe técnico completo con arquitectura, diagramas, documentación ML, métricas y conclusiones
+- **[GUIA_DEMO.md](docs/GUIA_DEMO.md)**: Guía de demostración en vivo con guion paso a paso
 
-## 🤖 Machine Learning
+## Machine Learning
 
 ### Modelos Implementados
 
@@ -357,10 +355,10 @@ La documentación completa del proyecto está disponible en la carpeta `/docs`:
 
 ### Métricas
 
-- ✅ **Accuracy**: 92.5%
-- ✅ **Precision**: 0.91
-- ✅ **Recall**: 0.89
-- ✅ **F1-Score**: 0.90 (≥85% requerido ✅)
+- **Accuracy**: 92.5%
+- **Precision**: 0.91
+- **Recall**: 0.89
+- **F1-Score**: 0.90 (≥85% requerido)
 
 ### Predicciones
 
@@ -399,7 +397,7 @@ Interfaz intuitiva de 5 pasos:
 - **axios**: Cliente HTTP para el frontend
 - **python-jose**: Manejo de JWT
 
-## 📊 Datos de Ejemplo
+## Datos de Ejemplo
 
 El proyecto incluye datos de ejemplo de sensores IoT de Cochabamba, Bolivia:
 - **Sensores de Calidad del Aire**: CO₂, temperatura, humedad, presión
@@ -408,7 +406,7 @@ El proyecto incluye datos de ejemplo de sensores IoT de Cochabamba, Bolivia:
 
 **Volumen**: ~69,139 registros (Noviembre 15 - Diciembre 30, 2024)
 
-## 🧪 Testing
+## Testing
 
 ### Probar Endpoints
 
@@ -428,7 +426,7 @@ curl -X POST http://localhost:8000/api/ml/train \
 - **Swagger UI**: http://localhost:8000/docs
 - **ReDoc**: http://localhost:8000/redoc
 
-## 🛠️ Tecnologías Implementadas
+## Tecnologías Implementadas
 
 ### Backend
 - **Python 3.8+**: Lenguaje principal
@@ -452,15 +450,15 @@ curl -X POST http://localhost:8000/api/ml/train \
 - **Logistic Regression**: Modelo lineal
 - **Decision Tree**: Árbol de decisión
 
-## 📈 Estado del Proyecto
+## Estado del Proyecto
 
-- ✅ Backend completo y funcional
-- ✅ Frontend completo y responsive
-- ✅ Machine Learning implementado
-- ✅ ML Wizard funcional
-- ✅ Predicciones por fecha, período y semana
-- ✅ Métricas ≥85% (F1-Score)
-- ✅ Documentación completa
+- Backend completo y funcional
+- Frontend completo y responsive
+- Machine Learning implementado
+- ML Wizard funcional
+- Predicciones por fecha, período y semana
+- Métricas ≥85% (F1-Score)
+- Documentación completa
 
 ## 🤝 Contribuciones
 
@@ -471,11 +469,11 @@ Para contribuir al proyecto:
 4. Push: `git push origin feature/nueva-funcionalidad`
 5. Crear Pull Request
 
-## 📝 Licencia
+## Licencia
 
 Este proyecto está bajo la licencia MIT.
 
-## 👥 Autores
+## Autores
 
 - **Joshua Chavez Abirari**: Desarrollador principal - Backend, Frontend, ML Services, API REST, ML Wizard, Dashboards, ML Algorithms, Feature Engineering, UI/UX, Visualizaciones, Documentación, Testing
 - **Joel Israel Lopez Ticlla**: Compañero de equipo - Apoyo y colaboración

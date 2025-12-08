@@ -109,9 +109,9 @@ GET http://localhost:8000/api/ml/models
 - Explicar: "Métricas clave calculadas en tiempo real"
 
 **Puntos a Destacar**:
-- ✅ Interfaz intuitiva y responsive
-- ✅ Múltiples tipos de gráficos
-- ✅ Filtros avanzados de fecha
+- Interfaz intuitiva y responsive
+- Múltiples tipos de gráficos
+- Filtros avanzados de fecha
 
 ---
 
@@ -125,7 +125,7 @@ GET http://localhost:8000/api/ml/models
 - Seleccionar sensor: "Air"
 - Seleccionar métrica: "CO₂ (ppm)"
 - Click en "Verificar Datos"
-- Mostrar: "✅ Datos disponibles: 5,519 registros"
+- Mostrar: "Datos disponibles: 5,519 registros"
 - Explicar: "El sistema verifica automáticamente la disponibilidad de datos"
 
 **Paso 3: Training Configuration (Paso 2)**
@@ -141,7 +141,7 @@ GET http://localhost:8000/api/ml/models
 - Mostrar progreso: "Entrenando modelos..."
 - Esperar 10-20 segundos (si es en vivo)
 - Mostrar resultados:
-  - "✅ Modelo seleccionado: Random Forest"
+  - "Modelo seleccionado: Random Forest"
   - "F1-Score: 0.90 (90%)"
   - Explicar: "Supera el requisito de ≥85%"
 
@@ -156,17 +156,17 @@ GET http://localhost:8000/api/ml/models
   - "Diagonal principal: predicciones correctas"
   - "92.5% de accuracy global"
 - Mostrar comparativa de modelos:
-  - Random Forest: F1-Score 0.90 ✅
+  - Random Forest: F1-Score 0.90
   - Logistic Regression: F1-Score 0.81
   - Decision Tree: F1-Score 0.85
   - Explicar: "Random Forest fue seleccionado automáticamente por tener el mayor F1-Score"
 
 **Puntos a Destacar**:
-- ✅ ML Wizard intuitivo sin conocimientos avanzados
-- ✅ Entrenamiento automático de 3 algoritmos
-- ✅ Selección automática del mejor modelo
-- ✅ F1-Score ≥85% (requisito cumplido)
-- ✅ Matriz de confusión exportada como imagen
+- ML Wizard intuitivo sin conocimientos avanzados
+- Entrenamiento automático de 3 algoritmos
+- Selección automática del mejor modelo
+- F1-Score ≥85% (requisito cumplido)
+- Matriz de confusión exportada como imagen
 
 ---
 
@@ -209,11 +209,11 @@ GET http://localhost:8000/api/ml/models
 - Explicar: "Filtrado interactivo para analizar predicciones por clase"
 
 **Puntos a Destacar**:
-- ✅ Predicciones por fecha (requisito cumplido)
-- ✅ Predicciones por período/mes (requisito cumplido)
-- ✅ Predicciones por semana (requisito cumplido)
-- ✅ Valores numéricos y clases
-- ✅ Interfaz interactiva con filtros
+- Predicciones por fecha (requisito cumplido)
+- Predicciones por período/mes (requisito cumplido)
+- Predicciones por semana (requisito cumplido)
+- Valores numéricos y clases
+- Interfaz interactiva con filtros
 
 ---
 
@@ -233,9 +233,9 @@ GET http://localhost:8000/api/ml/models
 - Explicar: "Puntuación basada en análisis de datos históricos"
 
 **Puntos a Destacar**:
-- ✅ Detección automática de anomalías
-- ✅ Alertas y advertencias
-- ✅ Puntuación de salud
+- Detección automática de anomalías
+- Alertas y advertencias
+- Puntuación de salud
 
 ---
 
@@ -262,11 +262,11 @@ GET http://localhost:8000/api/ml/models
 ### 3.1 Funcionalidad ML
 
 **Destacar**:
-- ✅ **F1-Score ≥85%**: Todos los modelos superan el requisito
-- ✅ **Predicciones Completas**: Por fecha, período y semana
-- ✅ **Métricas Completas**: Accuracy, Precision, Recall, F1-Score
-- ✅ **Matriz de Confusión**: Exportada como imagen PNG
-- ✅ **Selección Automática**: El sistema selecciona el mejor modelo
+- **F1-Score ≥85%**: Todos los modelos superan el requisito
+- **Predicciones Completas**: Por fecha, período y semana
+- **Métricas Completas**: Accuracy, Precision, Recall, F1-Score
+- **Matriz de Confusión**: Exportada como imagen PNG
+- **Selección Automática**: El sistema selecciona el mejor modelo
 
 **Frases Clave**:
 - "El modelo Random Forest alcanza un F1-Score de 0.90, superando el requisito de ≥85%"
@@ -276,9 +276,9 @@ GET http://localhost:8000/api/ml/models
 ### 3.2 Arquitectura
 
 **Destacar**:
-- ✅ **5 Capas**: Fuentes → Ingesta → Almacenamiento → Procesamiento → ML → Visualización
-- ✅ **Tecnologías Modernas**: FastAPI, React, MongoDB Atlas, Scikit-learn
-- ✅ **Escalable**: Arquitectura modular permite escalar independientemente
+- **5 Capas**: Fuentes → Ingesta → Almacenamiento → Procesamiento → ML → Visualización
+- **Tecnologías Modernas**: FastAPI, React, MongoDB Atlas, Scikit-learn
+- **Escalable**: Arquitectura modular permite escalar independientemente
 
 **Frases Clave**:
 - "Arquitectura de 5 capas bien definidas, cada una con responsabilidades claras"
@@ -287,9 +287,9 @@ GET http://localhost:8000/api/ml/models
 ### 3.3 Interfaz de Usuario
 
 **Destacar**:
-- ✅ **ML Wizard Intuitivo**: 5 pasos claros y guiados
-- ✅ **Interfaz Responsive**: Se adapta a móviles, tablets, desktop
-- ✅ **Gráficos Interactivos**: Recharts con hover, zoom, tooltips
+- **ML Wizard Intuitivo**: 5 pasos claros y guiados
+- **Interfaz Responsive**: Se adapta a móviles, tablets, desktop
+- **Gráficos Interactivos**: Recharts con hover, zoom, tooltips
 
 **Frases Clave**:
 - "El ML Wizard permite a usuarios sin conocimientos avanzados de ML entrenar modelos y hacer predicciones"
@@ -298,9 +298,9 @@ GET http://localhost:8000/api/ml/models
 ### 3.4 Trabajo en Equipo
 
 **Destacar**:
-- ✅ **Metodología Scrum**: Sprints de 2 semanas, standups regulares
-- ✅ **118 Commits**: Trabajo colaborativo efectivo
-- ✅ **Code Reviews**: Calidad asegurada mediante reviews
+- **Metodología Scrum**: Sprints de 2 semanas, standups regulares
+- **118 Commits**: Trabajo colaborativo efectivo
+- **Code Reviews**: Calidad asegurada mediante reviews
 
 **Frases Clave**:
 - "Trabajo en equipo efectivo mediante metodología Scrum"
@@ -374,7 +374,7 @@ GET http://localhost:8000/api/ml/models
 
 Esta guía proporciona un guion completo para demostrar todas las funcionalidades del sistema, especialmente el módulo de Machine Learning. Siguiendo este guion, podrás destacar los puntos fuertes del proyecto y cumplir con todos los requisitos de la Práctica N°4.
 
-**¡Buena suerte con la demostración!** 🚀
+**¡Buena suerte con la demostración!**
 
 ---
 
