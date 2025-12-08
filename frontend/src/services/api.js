@@ -8,6 +8,8 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  // Timeout de 10 segundos para evitar peticiones colgadas
+  timeout: 10000,
 });
 
 // Agregar token a las peticiones

@@ -10,6 +10,13 @@ from dotenv import load_dotenv
 dotenv_path = os.path.join(os.path.dirname(__file__), "../.env")
 load_dotenv(dotenv_path)
 
+# Configuración de logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 # Import routes - funciona desde backend/ o desde raíz del proyecto
 import sys
 from pathlib import Path

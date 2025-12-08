@@ -7,6 +7,7 @@
 [![React](https://img.shields.io/badge/React-18-blue.svg)](https://react.dev/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green.svg)](https://www.mongodb.com/cloud/atlas)
 [![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.3+-orange.svg)](https://scikit-learn.org/)
+[![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
 
 ## Descripción
 
