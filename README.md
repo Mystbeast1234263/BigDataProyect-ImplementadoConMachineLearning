@@ -74,7 +74,7 @@ graph TB
 1. **Backend** (`backend/`): API REST con FastAPI, autenticación, ML y gestión de sensores
 2. **Frontend** (`frontend/`): Dashboard web interactivo con React, Vite y ML Wizard
 3. **Machine Learning** (`backend/services/ml_classification_service.py`): Entrenamiento y predicción
-4. **Configuración** (`config.py`, `.env`): Configuraciones centralizadas
+4. **Configuración** (`.env`): Variables de entorno
 
 ---
 
@@ -126,9 +126,7 @@ BigDataProyect2/
 │   ├─ package.json                  # Dependencias Node.js
 │   └─ vite.config.js                # Configuración Vite
 │
-├─ config.py                         # Configuraciones
-├─ requirements.txt                  # Dependencias Python (raíz)
-├─ .env.example                      # Ejemplo de variables de entorno
+├─ .env.example                      # Ejemplo de variables de entorno (crear manualmente)
 │
 └─ Documentación/
     ├─ README.md                     # Este archivo
@@ -291,47 +289,41 @@ Cada gráfico incluye un **reporte automático** debajo con:
 
 ## Configuración Avanzada
 
-### Filtros de Fecha en el Productor
-Editar `config.py`:
-```python
-DEFAULT_DATE_FILTER = {
-    'habilitado': True,
-    'dias_atras': 7,  # Días hacia atrás desde hoy
-    'fecha_inicio': None,  # Fecha específica de inicio
-    'fecha_fin': None      # Fecha específica de fin
-}
-```
+### Configuración de Variables de Entorno
 
-### Configuración de Kafka
-```python
-KAFKA_BROKER_URL = 'localhost:9092'
-KAFKA_TOPIC = 'datos_sensores_gamc'
-```
+Crear archivo `.env` en la raíz del proyecto con:
 
-### Configuración del Dashboard
-```python
-AUTO_REFRESH_INTERVAL = 5000  # ms
-SAMPLE_SIZE = 1000
+```env
+# MongoDB Atlas
+MONGO_URI=mongodb+srv://usuario:password@cluster.mongodb.net/database?retryWrites=true&w=majority
+
+# Supabase (Opcional)
+SUPABASE_URL=https://tu-proyecto.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=tu-service-role-key
+
+# JWT Secret
+JWT_SECRET_KEY=tu-clave-secreta-muy-segura-aqui-minimo-32-caracteres
+
+# Backend
+BACKEND_URL=http://localhost:8000
+FRONTEND_URL=http://localhost:5173
 ```
 
 ---
 
 ## Solución de Problemas
 
-### Kafka no conecta
-- Verificar que Kafka esté ejecutándose
-- Comprobar que el puerto 9092 esté disponible
-- Revisar la configuración en `config.py`
-
 ### MongoDB no conecta
-- Verificar la cadena de conexión en `config.py`
+- Verificar la cadena de conexión en `.env` (MONGO_URI)
 - Comprobar que la IP esté en la whitelist de MongoDB Atlas
 - Verificar las credenciales
 
 ### Dashboard no muestra datos
-- Verificar que el consumidor de Kafka esté ejecutándose
-- Comprobar los logs del dashboard
+- Verificar que el backend FastAPI esté ejecutándose (http://localhost:8000)
+- Verificar que el frontend esté ejecutándose (http://localhost:5173)
+- Comprobar los logs del backend
 - Verificar que hay datos en las colecciones de MongoDB
+- Verificar que el token JWT es válido
 
 ---
 
