@@ -4,7 +4,7 @@ import SensorDataTable from './SensorDataTable';
 export default function SensorDataModal({ data, sensorType, isOpen, onClose }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
-  const itemsPerPage = 50;
+  const itemsPerPage = 500;
 
   // Filter data based on search term
   const filteredData = useMemo(() => {
