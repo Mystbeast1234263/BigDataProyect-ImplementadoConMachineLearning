@@ -4,6 +4,10 @@
 **DURACIÓN TOTAL:** 10 minutos  
 **OBJETIVO:** Demostrar todas las funcionalidades del sistema, especialmente el módulo de Machine Learning
 
+**AUTORES:**
+- **Joshua Chavez Abirari** - Desarrollador principal
+- **Joel Israel Lopez Ticlla** - Compañero de equipo (Apoyo y colaboración)
+
 ---
 
 ## ÍNDICE

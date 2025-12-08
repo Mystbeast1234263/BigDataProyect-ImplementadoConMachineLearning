@@ -4,6 +4,10 @@
 **PROYECTO:** GAMC Big Data Dashboard - Sistema de Análisis y Predicción con Machine Learning  
 **FECHA:** Diciembre 2024
 
+**AUTORES:**
+- **Joshua Chavez Abirari** - Desarrollador principal
+- **Joel Israel Lopez Ticlla** - Compañero de equipo (Apoyo y colaboración)
+
 ---
 
 ## ÍNDICE

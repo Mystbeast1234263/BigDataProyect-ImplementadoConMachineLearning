@@ -485,11 +485,8 @@ Este proyecto está bajo la licencia MIT.
 
 ## 👥 Autores
 
-- **Estudiante 1**: Backend, API REST, ML Services
-- **Estudiante 2**: Frontend, ML Wizard, Dashboards
-- **Estudiante 3**: ML Algorithms, Feature Engineering
-- **Estudiante 4**: UI/UX, Visualizaciones
-- **Estudiante 5**: Documentación, Testing
+- **Joshua Chavez Abirari**: Desarrollador principal - Backend, Frontend, ML Services, API REST, ML Wizard, Dashboards, ML Algorithms, Feature Engineering, UI/UX, Visualizaciones, Documentación, Testing
+- **Joel Israel Lopez Ticlla**: Compañero de equipo - Apoyo y colaboración
 
 ---
 

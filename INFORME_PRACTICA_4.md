@@ -5,11 +5,8 @@
 **FECHA:** Diciembre 2024
 
 **ESTUDIANTES:**
-- [Nombre Estudiante 1]
-- [Nombre Estudiante 2]
-- [Nombre Estudiante 3]
-- [Nombre Estudiante 4]
-- [Nombre Estudiante 5]
+- **Joshua Chavez Abirari** - Desarrollador principal (Backend, Frontend, ML, Documentación)
+- **Joel Israel Lopez Ticlla** - Compañero de equipo (Apoyo y colaboración)
 
 **DOCENTE:** [Nombre del Docente]  
 **UNIVERSIDAD DEL VALLE**

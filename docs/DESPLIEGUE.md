@@ -4,6 +4,10 @@
 **VERSIÓN:** 1.0  
 **FECHA:** Diciembre 2024
 
+**AUTORES:**
+- **Joshua Chavez Abirari** - Desarrollador principal
+- **Joel Israel Lopez Ticlla** - Compañero de equipo (Apoyo y colaboración)
+
 ---
 
 ## ÍNDICE
