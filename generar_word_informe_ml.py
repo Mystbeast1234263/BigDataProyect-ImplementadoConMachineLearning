@@ -51,7 +51,7 @@ def add_page_number(doc):
     run._element.append(fldChar2)
     
     # Formato del número de página
-    run.font.name = 'Times New Roman'
+    run.font.name = 'Arial'
     run.font.size = Pt(12)
 
 
@@ -65,10 +65,10 @@ def setup_apa_styles(doc):
     section.left_margin = Inches(1)
     section.right_margin = Inches(1)
     
-    # Estilo Normal (Times New Roman 12pt, doble espacio)
+    # Estilo Normal (Arial 12pt, doble espacio)
     normal_style = doc.styles['Normal']
     normal_font = normal_style.font
-    normal_font.name = 'Times New Roman'
+    normal_font.name = 'Arial'
     normal_font.size = Pt(12)
     normal_style.paragraph_format.line_spacing_rule = WD_LINE_SPACING.DOUBLE
     normal_style.paragraph_format.space_after = Pt(0)
@@ -77,7 +77,7 @@ def setup_apa_styles(doc):
     if 'Heading 1' in doc.styles:
         h1_style = doc.styles['Heading 1']
         h1_font = h1_style.font
-        h1_font.name = 'Times New Roman'
+        h1_font.name = 'Arial'
         h1_font.size = Pt(12)
         h1_font.bold = True
         h1_style.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -89,7 +89,7 @@ def setup_apa_styles(doc):
     if 'Heading 2' in doc.styles:
         h2_style = doc.styles['Heading 2']
         h2_font = h2_style.font
-        h2_font.name = 'Times New Roman'
+        h2_font.name = 'Arial'
         h2_font.size = Pt(12)
         h2_font.bold = True
         h2_style.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
@@ -101,7 +101,7 @@ def setup_apa_styles(doc):
     if 'Heading 3' in doc.styles:
         h3_style = doc.styles['Heading 3']
         h3_font = h3_style.font
-        h3_font.name = 'Times New Roman'
+        h3_font.name = 'Arial'
         h3_font.size = Pt(12)
         h3_font.bold = True
         h3_font.italic = True
@@ -114,7 +114,7 @@ def setup_apa_styles(doc):
     if 'Heading 4' in doc.styles:
         h4_style = doc.styles['Heading 4']
         h4_font = h4_style.font
-        h4_font.name = 'Times New Roman'
+        h4_font.name = 'Arial'
         h4_font.size = Pt(12)
         h4_font.bold = True
         h4_style.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
@@ -131,7 +131,7 @@ def add_title_page(doc, title, authors, course, date):
     title_para = doc.add_paragraph()
     title_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
     title_run = title_para.add_run(title.upper())
-    title_run.font.name = 'Times New Roman'
+    title_run.font.name = 'Arial'
     title_run.font.size = Pt(12)
     title_run.bold = True
     title_para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.DOUBLE
@@ -145,7 +145,7 @@ def add_title_page(doc, title, authors, course, date):
     info_para = doc.add_paragraph()
     info_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
     info_run = info_para.add_run(course)
-    info_run.font.name = 'Times New Roman'
+    info_run.font.name = 'Arial'
     info_run.font.size = Pt(12)
     info_para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.DOUBLE
     info_para.paragraph_format.space_after = Pt(12)
@@ -155,7 +155,7 @@ def add_title_page(doc, title, authors, course, date):
         author_para = doc.add_paragraph()
         author_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
         author_run = author_para.add_run(author)
-        author_run.font.name = 'Times New Roman'
+        author_run.font.name = 'Arial'
         author_run.font.size = Pt(12)
         author_para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.DOUBLE
         author_para.paragraph_format.space_after = Pt(12)
@@ -164,7 +164,7 @@ def add_title_page(doc, title, authors, course, date):
     date_para = doc.add_paragraph()
     date_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
     date_run = date_para.add_run(date)
-    date_run.font.name = 'Times New Roman'
+    date_run.font.name = 'Arial'
     date_run.font.size = Pt(12)
     date_para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.DOUBLE
     
@@ -253,12 +253,12 @@ def parse_markdown_to_docx(md_content, doc):
                 if part.startswith('**') and part.endswith('**'):
                     bold_text = part[2:-2]
                     run = para.add_run(bold_text)
-                    run.font.name = 'Times New Roman'
+                    run.font.name = 'Arial'
                     run.font.size = Pt(12)
                     run.bold = True
                 else:
                     run = para.add_run(part)
-                    run.font.name = 'Times New Roman'
+                    run.font.name = 'Arial'
                     run.font.size = Pt(12)
             
             i += 1
@@ -277,7 +277,7 @@ def parse_markdown_to_docx(md_content, doc):
                     cell.text = cell_text
                     for paragraph in cell.paragraphs:
                         for run in paragraph.runs:
-                            run.font.name = 'Times New Roman'
+                            run.font.name = 'Arial'
                             run.font.size = Pt(12)
             else:
                 row = doc._current_table.add_row()
@@ -286,7 +286,7 @@ def parse_markdown_to_docx(md_content, doc):
                         row.cells[j].text = cell_text
                         for paragraph in row.cells[j].paragraphs:
                             for run in paragraph.runs:
-                                run.font.name = 'Times New Roman'
+                                run.font.name = 'Arial'
                                 run.font.size = Pt(12)
             i += 1
             continue
@@ -316,14 +316,14 @@ def parse_markdown_to_docx(md_content, doc):
                 # Texto en negrita
                 bold_text = part[2:-2]
                 run = para.add_run(bold_text)
-                run.font.name = 'Times New Roman'
+                run.font.name = 'Arial'
                 run.font.size = Pt(12)
                 run.bold = True
             elif part.startswith('*') and part.endswith('*') and not part.startswith('**'):
                 # Texto en cursiva
                 italic_text = part[1:-1]
                 run = para.add_run(italic_text)
-                run.font.name = 'Times New Roman'
+                run.font.name = 'Arial'
                 run.font.size = Pt(12)
                 run.italic = True
             elif part.startswith('`') and part.endswith('`'):
@@ -335,7 +335,7 @@ def parse_markdown_to_docx(md_content, doc):
             else:
                 # Texto normal
                 run = para.add_run(part)
-                run.font.name = 'Times New Roman'
+                run.font.name = 'Arial'
                 run.font.size = Pt(12)
         
         i += 1
@@ -424,7 +424,7 @@ if __name__ == "__main__":
     if success:
         print("✨ ¡Proceso completado exitosamente!")
         print("\n📋 Características del documento:")
-        print("   ✓ Formato APA (márgenes 1 pulgada, Times New Roman 12pt)")
+        print("   ✓ Formato APA (márgenes 1 pulgada, Arial 12pt)")
         print("   ✓ Interlineado doble")
         print("   ✓ Portada con formato académico")
         print("   ✓ Numeración de páginas")
