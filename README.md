@@ -151,8 +151,8 @@ BigDataProyect2/
 
 1. **Clonar repositorio**
 ```bash
-git clone <repo-url>
-cd BigDataProyect2-Joel
+git clone https://github.com/Mystbeast1234263/BigDataProyect-ImplementadoConMachineLearning.git
+cd BigDataProyect-ImplementadoConMachineLearning
 ```
 
 2. **Configurar Backend**

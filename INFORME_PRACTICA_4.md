@@ -35,7 +35,7 @@
 ### 1.1 Estructura del Repositorio
 
 ```
-BigDataProyect2-Joel/
+BigDataProyect-ImplementadoConMachineLearning/
 ├── backend/                    # Backend FastAPI
 │   ├── routes/                # Endpoints API
 │   ├── services/              # Lógica de negocio
@@ -227,8 +227,8 @@ backend/models/
 
 #### Paso 1: Clonar Repositorio
 ```bash
-git clone <URL_DEL_REPOSITORIO>
-cd BigDataProyect2-Joel
+git clone https://github.com/Mystbeast1234263/BigDataProyect-ImplementadoConMachineLearning.git
+cd BigDataProyect-ImplementadoConMachineLearning
 ```
 
 #### Paso 2: Configurar Backend

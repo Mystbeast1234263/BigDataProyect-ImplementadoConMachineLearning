@@ -13,3 +13,5 @@ numpy
 scikit-learn
 matplotlib
 seaborn
+markdown
+xhtml2pdf

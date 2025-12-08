@@ -175,7 +175,7 @@
 
 **P: ¿Cómo se despliega el sistema localmente?**
 **R:**
-1. Clonar repositorio: `git clone <URL>`
+1. Clonar repositorio: `git clone https://github.com/Mystbeast1234263/BigDataProyect-ImplementadoConMachineLearning.git`
 2. Backend: `python -m venv venv`, `pip install -r requirements.txt`, `uvicorn main:app --reload`
 3. Frontend: `npm install`, `npm run dev`
 4. Configurar `.env` con MongoDB URI, Supabase URL, JWT secret

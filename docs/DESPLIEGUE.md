@@ -77,8 +77,8 @@ flowchart TD
 
 ```bash
 # Clonar el repositorio
-git clone <URL_DEL_REPOSITORIO>
-cd BigDataProyect2-Joel
+git clone https://github.com/Mystbeast1234263/BigDataProyect-ImplementadoConMachineLearning.git
+cd BigDataProyect-ImplementadoConMachineLearning
 ```
 
 **Verificación**:
@@ -677,8 +677,8 @@ sudo npm install -g pm2
 
 ```bash
 # Clonar repositorio
-git clone <URL_REPOSITORIO>
-cd BigDataProyect2-Joel
+git clone https://github.com/Mystbeast1234263/BigDataProyect-ImplementadoConMachineLearning.git
+cd BigDataProyect-ImplementadoConMachineLearning
 
 # Configurar entorno virtual
 python3 -m venv venv
@@ -841,7 +841,7 @@ python -m uvicorn main:app --port 8001
 ## CONTACTO Y SOPORTE
 
 Para problemas o preguntas:
-- **Repositorio**: [GitHub Issues](URL_DEL_REPOSITORIO/issues)
+- **Repositorio**: [GitHub Issues](https://github.com/Mystbeast1234263/BigDataProyect-ImplementadoConMachineLearning/issues)
 - **Documentación**: Ver `docs/INFORME_ML.md`
 
 ---

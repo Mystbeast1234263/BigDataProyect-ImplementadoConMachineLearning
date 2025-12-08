@@ -604,7 +604,7 @@ Similar a período, con rango de 7 días.
 ### 6.1 Estructura del Repositorio
 
 ```
-BigDataProyect2-Joel/
+BigDataProyect-ImplementadoConMachineLearning/
 ├── backend/                    # Backend FastAPI
 │   ├── main.py                 # Aplicación principal
 │   ├── models.py               # Modelos Pydantic
