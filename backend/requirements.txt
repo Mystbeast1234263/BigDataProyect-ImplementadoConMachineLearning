@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pymongo
+python-dotenv
+pydantic
+python-jose[cryptography]
+bcrypt
+pytz
+python-multipart
+supabase
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
