@@ -20,6 +20,8 @@ import HistogramChart from './Analytics/HistogramChart';
 import MLWizard from './MLWizard';
 import MetricDashboard from './MetricDashboard';
 
+// ... (imports remain the same)
+
 export default function Dashboard() {
   const user = useAuthStore((state) => state.user);
   const { t } = useLanguage();
@@ -44,7 +46,7 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('monitoring');
   const [showDataModal, setShowDataModal] = useState(false);
 
-  // Load sensor data and stats
+  // ... (Load sensor data and stats logic remains the same)
   const loadSensorData = useCallback(async (customFilter = null, silent = false) => {
     // Don't load if sensor is not selected
     if (!selectedSensor) {
@@ -225,42 +227,46 @@ export default function Dashboard() {
   const isAdminOrOperator = user?.rol === 'admin' || user?.rol === 'operador';
 
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen">
       <Header />
 
-      <main className="w-full flex gap-0">
-        {/* LEFT SIDEBAR */}
-        <aside className="w-72 bg-slate-800 border-r border-slate-700 px-6 py-8 overflow-y-auto">
+      <main className="w-full flex gap-0 h-[calc(100vh-64px)] overflow-hidden">
+        {/* LEFT SIDEBAR - Glass Effect */}
+        <aside className="w-80 bg-slate-900/60 backdrop-blur-md border-r border-white/5 px-6 py-8 overflow-y-auto custom-scrollbar shadow-2xl z-10">
           {/* Page Title */}
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-2">{t('sidebar_title')}</h2>
-            <p className="text-xs text-slate-400">{t('controls_filters')}</p>
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent mb-2">{t('sidebar_title')}</h2>
+            <p className="text-xs text-slate-400 font-medium tracking-wide">{t('controls_filters')}</p>
           </div>
 
           {/* Auto-Refresh Toggle */}
-          <div className="mb-6 p-4 bg-slate-700/50 rounded-lg border border-slate-600">
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center gap-2">
-                <div className={`w-3 h-3 rounded-full ${autoRefresh ? 'bg-green-500 animate-pulse' : 'bg-gray-500'}`}></div>
-                <span className="text-sm font-semibold text-white">
+          <div className="mb-8 p-5 bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-xl border border-white/5 shadow-inner">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                   <div className={`w-3 h-3 rounded-full ${autoRefresh ? 'bg-green-500 animate-pulse' : 'bg-gray-500'}`}></div>
+                   {autoRefresh && <div className="absolute inset-0 w-3 h-3 bg-green-400 rounded-full animate-ping opacity-75"></div>}
+                </div>
+                <span className="text-sm font-semibold text-white tracking-wide">
                   {autoRefresh ? t('real_time_update') : t('manual_update')}
                 </span>
               </div>
               <button
                 onClick={() => setAutoRefresh(!autoRefresh)}
-                className={`px-3 py-1 text-xs rounded transition-colors ${
+                className={`px-3 py-1 text-xs font-bold uppercase rounded-md transition-all duration-300 ${
                   autoRefresh
-                    ? 'bg-green-600 hover:bg-green-700 text-white'
-                    : 'bg-slate-600 hover:bg-slate-500 text-slate-200'
+                    ? 'bg-green-500/20 text-green-400 hover:bg-green-500/30'
+                    : 'bg-slate-700/50 text-slate-400 hover:bg-slate-700'
                 }`}
               >
                 {autoRefresh ? t('on') : t('off')}
               </button>
             </div>
             {autoRefresh && (
-              <div className="mt-2">
-                <label className="text-xs text-slate-300 block mb-1">
-                  {t('interval')}: {refreshInterval}s
+              <div className="mt-3 animate-in fade-in slide-in-from-top-2 duration-300">
+                <label className="text-xs text-slate-400 font-medium block mb-2 flex justify-between">
+                  <span>{t('interval')}</span>
+                  <span className="text-blue-400">{refreshInterval}s</span>
                 </label>
                 <input
                   type="range"
@@ -268,9 +274,9 @@ export default function Dashboard() {
                   max="30"
                   value={refreshInterval}
                   onChange={(e) => setRefreshInterval(Number(e.target.value))}
-                  className="w-full"
+                  className="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500"
                 />
-                <div className="flex justify-between text-xs text-slate-400 mt-1">
+                <div className="flex justify-between text-[10px] text-slate-500 mt-1 font-mono">
                   <span>2s</span>
                   <span>15s</span>
                   <span>30s</span>
@@ -278,23 +284,29 @@ export default function Dashboard() {
               </div>
             )}
             {autoRefresh && (
-              <div className="text-xs text-slate-400 mt-2 space-y-1">
-                <p>{t('last_update')}: {lastRefresh.toLocaleTimeString()}</p>
-                <p className="text-slate-500">{t('smart_mode')}</p>
+              <div className="text-[10px] text-slate-500 mt-3 pt-3 border-t border-white/5 flex flex-col gap-1">
+                <p className="flex justify-between"><span>{t('last_update')}:</span> <span className="font-mono text-slate-400">{lastRefresh.toLocaleTimeString()}</span></p>
+                <p className="text-blue-500/70 italic flex items-center gap-1">
+                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                   {t('smart_mode')}
+                </p>
               </div>
             )}
           </div>
 
           {/* Error Message */}
           {error && (
-            <div className="mb-6 p-3 bg-red-900/20 border border-red-500 rounded-lg text-red-400 text-sm">
-              {error}
+            <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm shadow-sm backdrop-blur-sm animate-in shake">
+              <div className="flex gap-2 items-start">
+                 <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                 <span>{error}</span>
+              </div>
             </div>
           )}
 
           {/* Controls - Vertical Stack */}
           <div className="space-y-6">
-            <div>
+            <div className="glass-card p-2 rounded-xl">
               <SensorTypeSelector
                 selected={selectedSensor}
                 onChange={setSelectedSensor}
@@ -302,29 +314,21 @@ export default function Dashboard() {
             </div>
 
             {selectedSensor && (
-              <div>
+              <div className="glass-card p-4 rounded-xl">
                 <DateRangeSelector
                   sensorType={selectedSensor}
                   onDateRangeChange={(dateRange) => {
-                    // Update date filter and reload data
-                    const newFilter = {
-                      from: dateRange.from,
-                      to: dateRange.to,
-                    };
+                    const newFilter = { from: dateRange.from, to: dateRange.to };
                     setDateFilter(newFilter);
-
-                    // If apply flag is set, reload data immediately
-                    if (dateRange.apply) {
-                      loadSensorData(newFilter);
-                    }
+                    if (dateRange.apply) loadSensorData(newFilter);
                   }}
                   loading={loading || previewLoading}
-                  key={`${selectedSensor}-${dateRangeRefreshKey}`} // Force re-render when sensor changes or data is saved
+                  key={`${selectedSensor}-${dateRangeRefreshKey}`}
                 />
               </div>
             )}
 
-            <div>
+            <div className="glass-card p-4 rounded-xl">
               <RecordLimitSelector
                 value={recordLimit}
                 onChange={setRecordLimit}
@@ -332,7 +336,7 @@ export default function Dashboard() {
               />
             </div>
 
-            <div>
+            <div className="glass-card p-4 rounded-xl">
               <FileUpload
                 sensorType={selectedSensor}
                 onUploadComplete={handleCSVUploadComplete}
@@ -340,7 +344,7 @@ export default function Dashboard() {
               />
             </div>
 
-            <div>
+            <div className="pt-4 border-t border-white/5">
               <ActionButtons
                 onGeneratePreview={handleGeneratePreview}
                 onClear={handleClearData}
@@ -352,64 +356,73 @@ export default function Dashboard() {
           </div>
         </aside>
 
-        {/* MAIN CONTENT */}
-        <div className="flex-1 px-6 py-8">
-          {/* Page Title */}
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-white mb-2">{t('sensor_dashboard')}</h2>
-            <p className="text-slate-400">{t('real_time_monitoring')}</p>
-            <div className="flex flex-wrap gap-3 mt-6">
-              {[
-                { id: 'monitoring', labelKey: 'monitoring' },
-                { id: 'predictions', labelKey: 'ml_predictions' },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
-                    activeTab === tab.id
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                  }`}
-                >
-                  {t(tab.labelKey)}
-                </button>
-              ))}
-            </div>
+        {/* MAIN CONTENT - Scrollable */}
+        <div className="flex-1 px-8 py-8 overflow-y-auto custom-scrollbar scroll-smooth">
+          {/* Page Title & Tabs */}
+          <div className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-6 border-b border-white/5">
+             <div>
+               <h2 className="text-4xl font-black text-white mb-2 tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+                  {t('sensor_dashboard')}
+               </h2>
+               <p className="text-slate-400 font-medium text-lg">{t('real_time_monitoring')}</p>
+             </div>
+             
+             <div className="flex p-1 bg-slate-900/50 backdrop-blur-md rounded-full border border-white/5 shadow-inner">
+               {[
+                 { id: 'monitoring', labelKey: 'monitoring', icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' },
+                 { id: 'predictions', labelKey: 'ml_predictions', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+               ].map((tab) => (
+                 <button
+                   key={tab.id}
+                   type="button"
+                   onClick={() => setActiveTab(tab.id)}
+                   className={`px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 transition-all duration-300 ${
+                     activeTab === tab.id
+                       ? 'bg-blue-600 shadow-lg shadow-blue-500/30 text-white scale-105'
+                       : 'text-slate-400 hover:text-white hover:bg-white/5'
+                   }`}
+                 >
+                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={tab.icon} /></svg>
+                   {t(tab.labelKey)}
+                 </button>
+               ))}
+             </div>
           </div>
 
           {activeTab === 'monitoring' && (
-            <>
+            <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
               {/* KPI Cards with Charts */}
               <KPICards stats={stats} sensorData={sensorData} />
 
               {/* Charts Section */}
               {loading ? (
-                <div className="text-center py-12">
-                  <div className="inline-block">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+                <div className="glass-panel rounded-2xl p-12 text-center flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="relative">
+                    <div className="w-16 h-16 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                       <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                    </div>
                   </div>
-                  <p className="text-slate-400 mt-4">Loading sensor data...</p>
+                  <p className="text-slate-300 mt-6 font-medium text-lg animate-pulse">Cargando datos del sensor...</p>
                 </div>
               ) : (
                 <>
                   {/* Dynamic Charts - Changes based on sensor type */}
-                  <div className="mb-8">
+                  <div className="glass-panel rounded-2xl p-6 border border-white/5 shadow-2xl relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -mr-32 -mt-32 transition-all duration-1000 group-hover:bg-blue-500/10"></div>
                     <SensorCharts data={sensorData} sensorType={selectedSensor} />
                   </div>
 
                   {/* Metric-Specific Dashboards */}
                   {stats && Object.keys(stats).length > 0 && (
-                    <div className="mb-8 space-y-8">
-                      <div>
-                        <h3 className="text-2xl font-semibold text-white mb-6">Dashboards por Métrica</h3>
-                        <p className="text-slate-400 mb-6">
-                          Visualizaciones detalladas para cada métrica del sensor. Selecciona diferentes vistas para analizar los datos.
-                        </p>
+                    <div className="space-y-8">
+                      <div className="flex items-center gap-4 py-4">
+                        <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1"></div>
+                        <h3 className="text-2xl font-bold text-white whitespace-nowrap">Dashboards por Métrica</h3>
+                        <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1"></div>
                       </div>
+                      
                       {Object.entries(stats).slice(0, 4).map(([metricKey, metricStats]) => {
-                        // Map metric names to field keys
                         const metricFieldMap = {
                           'co2 (ppm)': 'co2_ppm',
                           'temperature (°c)': 'temperatura_c',
@@ -423,66 +436,81 @@ export default function Dashboard() {
                         };
                         const fieldKey = metricFieldMap[metricKey.toLowerCase()] || metricKey.toLowerCase().replace(/\s+/g, '_').replace(/[()]/g, '').replace('°c', 'c');
                         return (
-                          <MetricDashboard
-                            key={metricKey}
-                            metricKey={fieldKey}
-                            sensorData={sensorData}
-                            stats={metricStats}
-                          />
+                           <div className="glass-panel rounded-2xl p-1 overflow-hidden transition-all hover:border-white/10" key={metricKey}>
+                              <MetricDashboard
+                                 metricKey={fieldKey}
+                                 sensorData={sensorData}
+                                 stats={metricStats}
+                              />
+                           </div>
                         );
                       })}
                     </div>
                   )}
 
                   {/* Analytical Charts Section */}
-                  <div className="mb-8 space-y-8">
-                    <div>
-                      <h3 className="text-2xl font-semibold text-white mb-6">Análisis Avanzado</h3>
+                  <div className="space-y-8">
+                     <div className="flex items-center gap-4 py-4 mt-8">
+                        <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1"></div>
+                        <h3 className="text-2xl font-bold text-white whitespace-nowrap">Análisis Avanzado</h3>
+                        <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1"></div>
+                     </div>
+
+                    <div className="glass-panel p-6 rounded-2xl border border-white/5">
+                       <TimeSeriesChart data={sensorData} sensorType={selectedSensor} />
                     </div>
 
-                    {/* Time Series Chart */}
-                    <TimeSeriesChart data={sensorData} sensorType={selectedSensor} />
+                    <div className="glass-panel p-6 rounded-2xl border border-white/5">
+                       <HeatmapChart data={sensorData} sensorType={selectedSensor} />
+                    </div>
 
-                    {/* Heatmap Chart */}
-                    <HeatmapChart data={sensorData} sensorType={selectedSensor} />
-
-                    {/* Bar Comparative and Histogram - Side by Side */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <BarChartComparative data={sensorData} sensorType={selectedSensor} />
-                      <HistogramChart data={sensorData} sensorType={selectedSensor} />
+                       <div className="glass-panel p-6 rounded-2xl border border-white/5">
+                          <BarChartComparative data={sensorData} sensorType={selectedSensor} />
+                       </div>
+                       <div className="glass-panel p-6 rounded-2xl border border-white/5">
+                          <HistogramChart data={sensorData} sensorType={selectedSensor} />
+                       </div>
                     </div>
                   </div>
 
                   {/* Data Table Button */}
-                  <div className="mb-8">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-xl font-semibold text-white">Registros Detallados</h3>
-                      <button
-                        onClick={() => setShowDataModal(true)}
-                        className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors flex items-center gap-2 shadow-lg hover:shadow-blue-500/50"
-                      >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-                        </svg>
-                        Ver Datos ({allSensorData.length} registros)
-                      </button>
-                    </div>
-                    <div className="bg-slate-800 rounded-lg border border-slate-700 p-8 text-center">
-                      <svg className="w-16 h-16 text-slate-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                      <p className="text-slate-400 mb-2">Haz clic en "Ver Datos" para ver todos los registros</p>
-                      <p className="text-sm text-slate-500">Total: {allSensorData.length} registros disponibles</p>
-                    </div>
+                  <div className="mt-12 mb-8">
+                     <div className="glass-panel rounded-2xl p-8 text-center border border-white/10 bg-gradient-to-b from-slate-900/50 to-slate-900/80 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-blue-500/5 blur-3xl"></div>
+                        <div className="relative z-10 flex flex-col items-center">
+                           <div className="p-4 bg-white/5 rounded-full mb-4 ring-1 ring-white/10">
+                              <svg className="w-10 h-10 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                              </svg>
+                           </div>
+                           <h3 className="text-2xl font-bold text-white mb-2">Explora los Datos Crudos</h3>
+                           <p className="text-slate-400 mb-6 max-w-lg mx-auto">
+                              Accede a la tabla completa con los {allSensorData.length} registros disponibles para realizar un análisis detallado fila por fila.
+                           </p>
+                           
+                           <button
+                              onClick={() => setShowDataModal(true)}
+                              className="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 flex items-center gap-3 group"
+                           >
+                              <span>Ver Base de Datos Completa</span>
+                              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                              </svg>
+                           </button>
+                           <p className="text-xs text-slate-500 mt-4 font-mono bg-slate-950/50 px-3 py-1 rounded-full border border-white/5">
+                              {allSensorData.length} registros cargados en memoria
+                           </p>
+                        </div>
+                     </div>
                   </div>
                 </>
               )}
-            </>
+            </div>
           )}
 
           {activeTab === 'predictions' && (
-            <div className="space-y-8">
-              {/* Solo Clasificación ML - todo integrado */}
+            <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
               <MLWizard 
                 sensorType={selectedSensor} 
                 dateFilter={dateFilter}
